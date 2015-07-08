@@ -1,6 +1,7 @@
 
 var counter = 0;
 var score = 0;
+
 var question1 = {question: "What was the main character's name in the movie 'Clueless' ?", choices: "a) Paula b) Barbie c)  Cher ", answer: "c"}
 
 var question2 = {question: "How many theatrical versions of Batman Series have there been?", choices: "a) 5 b) 12 c) 10 ", answer: "b"}
@@ -11,24 +12,25 @@ var question4 = {question: "What was the name of the island on which King Kong w
 
 var questions = [question1, question2, question3, question4]
 
-var buttonSubmit = document.getElementById("submitter"); // calling submit button by id.
-var userAnswer = document.getElementById("answer"); // calling answer div by id.
-var questionResult = document.getElementById("question_result");
+var buttonSubmit = document.getElementById("submitter"); // calling divs by div id and assigning to variables.
+var userAnswer = document.getElementById("answer");
+var questionResult = document.getElementById("question_result"); 
 var nextButton = document.getElementById("next");
+var questionHandler = document.getElementById("question");
+var choicesHandler = document.getElementById("choices");
+var totalResult = document.getElementById("total_result");
 
 
 var next_question = function() {
-  var questionHandler = document.getElementById("question"); // assign questionHandler to "question" div
-  questionHandler.innerHTML = questions[counter].question; //set div content to question index according counter, calling question
-  var choicesHandler = document.getElementById("choices"); // assign choiceHandler to choices div
-  choicesHandler.innerHTML = questions[counter].choices; // set div content to question index according counter, calling answer
+  questionHandler.innerHTML = questions[counter].question; //set div content to question index according 
+  choicesHandler.innerHTML = questions[counter].choices; // set div content to question index according 
 }
 
 var given_answer = function() {
   return userAnswer.value //returning value of answer
 }
 //when user clicks submit, start the process_answer_submission function.
-buttonSubmit.onclick = process_answer_submission; 
+
 // reset answer div value.
 var clear_answer = function() {
   userAnswer.value = "";
@@ -56,11 +58,12 @@ var update_question_result = function(correct) { //argument comes from process_a
 }
 
 //set's user's answer to user_answer var. Sends info to both is correct function then on to update_question_result function
-function process_answer_submission() {
+var process_answer_submission = function() {
   var user_answer = given_answer(); 
   update_question_result(is_correct_answer(user_answer));
 }
 
+buttonSubmit.onclick = process_answer_submission;  // when submit button clicked use function
 
 var game_over = function() {
   if (counter < 4) {
@@ -85,6 +88,6 @@ nextButton.onclick = next_submit; // when next button click start next_question
 
 var final_total = function() {
   var score_announce = "You answered " + score + " out of 4 questions correct";
-  document.getElementById("total_result").innerHTML = score_announce;// feeding total_result div with score announcement
+  totalResult.innerHTML = score_announce;// feeding total_result div with score announcement
 }
 
