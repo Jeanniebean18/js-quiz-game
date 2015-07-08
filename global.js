@@ -1,12 +1,13 @@
 
 var counter = 0;
 var score = 0;
+
 var question1 = {question: "What was the main character's name in the movie 'Clueless' ?", choices: "a) Paula b) Barbie c)  Cher ", answer: "c"};
-//
+
 var question2 = {question: "How many theatrical versions of Batman Series have there been?", choices: "a) 5 b) 12 c) 10 ", answer: "b"};
-//
+
 var question3 = {question: "Clint Eastwood gave us the immortal line, 'Go ahead... make my day', in what film?", choices: "a) Dirty Harry b) Magnum Force c) Tightrope", answer: "a" };
-//
+
 var question4 = {question: "What was the name of the island on which King Kong was discovered in the original 1933 movie?", choices: "a) Ape Island b) Monster Island c) Skull Island", answer: "c" };
 
 var questions = [question1, question2, question3, question4];
@@ -24,9 +25,9 @@ function given_answer() {
 
 function is_correct_answer(answer_text) { // argument comes from process_answer_submission function // Returns true or false.
   if (answer_text.toLowerCase() === questions[counter].answer) { 
-      return true; 
+    return true; 
   } else {
-      return false;
+    return false;
   }   
 };
 
@@ -58,9 +59,9 @@ function clear_question_result () {
 
 function is_game_over () {
   if (counter < questions.length) {
-      return false; 
+    return false; 
   } else {
-      return true;
+    return true;
   }
 };
 
@@ -69,9 +70,9 @@ function next_button() {
   clear_question_result();
   counter++;
   if (is_game_over() === true) {
-      final_total();
+    final_total();
   } else {
-      next_question();
+    next_question();
   }
 }
 
@@ -82,34 +83,3 @@ function final_total() {
   document.getElementById("total_result").innerHTML = score_announce;// feeding total_result div with score announcement
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-//
-//   // Your user loads the page in question.
-//   // The user is presented (using either console.log() or alert() with a multiple choice question
-//   // The user is prompted (using prompt()) for an answer
-//   // Upon answer, the user sees an alert() or console.log()
-//   // telling them whether they answered correctly or incorrectly.
-//   // Then they see the next question (in a new alert() or console.log()),
-//   // and steps 2-4 repeat until there are no more questions.
-//   // Once the user has answered all questions, they see an alert()
-//   // telling them how many they answered correctly (out of however
-//     // many questions there were), and something that looks like a
-//     // percentage. E.g. You answered 7 of 10 questions correctly, good for 70.0%
