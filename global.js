@@ -1,7 +1,6 @@
 
 var counter = 0;
 var score = 0;
-
 var question1 = {question: "What was the main character's name in the movie 'Clueless' ?", choices: "a) Paula b) Barbie c)  Cher ", answer: "c"};
 
 var question2 = {question: "How many theatrical versions of Batman Series have there been?", choices: "a) 5 b) 12 c) 10 ", answer: "b"};
@@ -21,31 +20,7 @@ function next_question() {
 
 function given_answer() {
   return document.getElementById("answer").value //grabbing the div answer value that the user inputted.
-};
-
-function is_correct_answer(answer_text) { // argument comes from process_answer_submission function // Returns true or false.
-  if (answer_text.toLowerCase() === questions[counter].answer) { 
-    return true; 
-  } else {
-    return false;
-  }   
-};
-
-function update_question_result(correct) { //argument comes from process_answer_submission function. Either true or false.
-  if (correct === true) {
-    score++; // if correct is true, increment score by 1.
-    document.getElementById("question_result").innerHTML = "Yes!!" // feed to div "question_result" content: "yes"!
-  } else {
-    document.getElementById("question_result").innerHTML = "Nope!" // feed to div "question_result" content: "nope"!
-  }
-};
-
-//set's user's answer to user_answer var. Sends info to both is correct function then on to update_question_result function
-function process_answer_submission() {
-  var user_answer = given_answer(); 
-  update_question_result(is_correct_answer(user_answer));
-  
-};
+}
 //when user clicks submit, start the process_answer_submission function.
 document.getElementById("submitter").onclick = process_answer_submission; 
 // reset answer div value.
@@ -57,19 +32,43 @@ function clear_question_result () {
   document.getElementById("question_result").innerHTML = "";
 }
 
-function is_game_over () {
+function is_correct_answer(answer_text) { // argument comes from process_answer_submission function // Returns true or false.
+  if (answer_text.toLowerCase() === questions[counter].answer) { 
+    return true; 
+  } else {
+    return false;
+  }   
+}
+
+function update_question_result(correct) { //argument comes from process_answer_submission function. Either true or false.
+  if (correct === true) {
+    score++; // if correct is true, increment score by 1.
+    document.getElementById("question_result").innerHTML = "Success!!" // feed to div "question_result" content: "yes"!
+  } else {
+    document.getElementById("question_result").innerHTML = "Wrong!" // feed to div "question_result" content: "nope"!
+  }
+}
+
+//set's user's answer to user_answer var. Sends info to both is correct function then on to update_question_result function
+function process_answer_submission() {
+  var user_answer = given_answer(); 
+  update_question_result(is_correct_answer(user_answer));
+}
+
+
+function game_over () {
   if (counter < questions.length) {
     return false; 
   } else {
     return true;
   }
-};
+}
 
 function next_button() {
   clear_answer();
   clear_question_result();
   counter++;
-  if (is_game_over() === true) {
+  if (game_over() === true) {
     final_total();
   } else {
     next_question();
