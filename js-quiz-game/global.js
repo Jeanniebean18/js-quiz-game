@@ -22,15 +22,15 @@ var totalResult = document.getElementById("total_result");
 
 
 var next_question = function() {
-  questionHandler.innerHTML = questions[counter].question; //set div content to question index according 
-  choicesHandler.innerHTML = questions[counter].choices; // set div content to question index according 
+  questionHandler.innerHTML = questions[counter].question; //set div content to question index according
+  choicesHandler.innerHTML = questions[counter].choices; // set div content to question index according
+  
 }
 
 var given_answer = function() {
   return userAnswer.value //returning value of answer
 }
 //when user clicks submit, start the process_answer_submission function.
-
 // reset answer div value.
 var clear_answer = function() {
   userAnswer.value = "";
@@ -84,7 +84,7 @@ var next_submit = function() {
   }
 }
 
-nextButton.onclick = next_submit; // when next button click start next_question 
+nextButton.onclick = next_submit; // when next button click start next_submit // stores function process. doesn't run function now. 
 
 var final_total = function() {
   var score_announce = "You answered " + score + " out of 4 questions correct";

@@ -1,0 +1,53 @@
+#question1 {
+  font-size: 200%;
+  color:red;
+  display:none;
+}
+#question2 {
+  font-size: 200%;
+  color:red;
+  display:none;
+}
+#question3 {
+  font-size: 200%;
+  color:red;
+  display:none;
+}
+#question4 {
+  font-size: 200%;
+  color:red;
+  display:none;
+}
+#horray {
+  font-size: 300%;
+  color:red;
+  display:none;
+}
+#nogood {
+  font-size:200%;
+  display:none;
+}
+
+button {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  position: relative;
+  margin-top:1%;
+  background-color: #6BA235;
+  font-size: 100%;
+  color: white;
+  padding:1%;
+  border-radius: 25px;
+  border: 0px solid;
+  z-index: 1;
+  width:150px;
+  font-weight: bold;
+}
+
+input {
+  width: 100px;
+  height: 50px;
+  font-size: 200%;
+  color:red;
+}
+
+
